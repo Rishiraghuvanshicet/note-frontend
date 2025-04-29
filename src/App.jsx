@@ -1,35 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Container, Tabs, Tab } from "@mui/material";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [tab, setTab] = useState(0);
+  const [refresh, setRefresh] = useState(false);
+
+  const handleChange = (event) => setTab(event.target.value);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+    <Container maxWidth="md" sx={{ mt: "4" }}>
+      <Tabs value={tab} onChange={handleChange} centered>
+        <Tab label="Add Note" />
+        <Tab label="View Notes" />
+      </Tabs>
+    </Container>
+  );
+};
+export default App;
