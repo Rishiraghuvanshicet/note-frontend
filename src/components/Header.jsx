@@ -1,11 +1,18 @@
-import { Tabs, Tab } from "@mui/material";
-
+import { Tabs, Tab, Box, Paper } from "@mui/material";
 const Header = ({ value, onChange }) => {
   return (
-    <Tabs value={value} onChange={onChange} centered>
-      <Tab label="Add Note" />
-      <Tab label="View Notes" />
-    </Tabs>
+    <Box sx={{ mb: 3 }}>
+      <Paper elevation={3} sx={{ borderRadius: 2 }}>
+        <Tabs value={value} onChange={onChange} centered
+        sx={{
+          fontWeight: "bold",
+          fontFamily:'Arial, sans-serif'
+        }}>
+          <Tab label="Add Note" />
+          <Tab label="View Notes" />
+        </Tabs>
+      </Paper>
+    </Box>
   );
 };
 
